@@ -1,0 +1,62 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 240px;
+    border-radius: 20px;
+    padding: 1rem;
+    margin-top: 2rem;
+    text-align: center;
+    word-break: keep-all;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    color: white;
+    background-image: url('../images/card_background.png');
+    background-color: #ccc;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    font-family: "Hahmlet", serif;
+    font-weight: 700;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.card.feministAlliance {
+    background-color: #80479C;
+}
+
+.card.talCorset {
+    background-color: #275BA9;
+}
+
+.card.talOtaku {
+    background-color: #008B9C;
+}
+
+.card.talIdol {
+    background-color: #5A6B58;
+}
+
+.card.talReligion {
+    background-color: #CE4983;
+}
+
+.card.selfThinking {
+    background-color: #F47B42;
+}
+
+.card.socialIssue {
+    background-color: #5C646A;
+}
+
+.title {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.keyword {
+    font-size: 3rem;
+    font-weight: bold;
+    line-height: 120%;
+}

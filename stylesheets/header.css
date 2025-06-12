@@ -1,0 +1,23 @@
+header {
+    background-color: #170c1e;
+    padding: 1rem 2rem;
+}
+
+header div {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 900px;
+}
+
+header img {
+    height: 40px;
+    padding-bottom: 5px;
+}
+
+header span {
+    color: #a29ea5;
+    font-size: 0.9rem;
+}

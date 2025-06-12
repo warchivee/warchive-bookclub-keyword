@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@100..900&family=Noto+Sans+KR:wght@100..900&display=swap');
+
+@import './header.css';
+@import './footer.css';
+
+@import './button.css';
+@import './toast.css';
+
+@import './category-selector.css';
+@import './keyword-card.css';
+
+@import './all-keyword-popup.css';
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    letter-spacing: -1px;
+    background-color: #fbfbfb;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+}
+
+select, 
+button {
+    font-family: 'Noto Sans KR', sans-serif;
+    letter-spacing: -1px;
+}

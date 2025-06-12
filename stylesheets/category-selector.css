@@ -1,0 +1,34 @@
+.category-selector {
+    width: 100%;
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+select {
+    flex: 1;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+    background-color: #eee;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+
+    /* 기본 화살표 숨기기 */
+    -webkit-appearance: none;
+    /* 크롬, 사파리 */
+    -moz-appearance: none;
+    /* 파이어폭스 */
+    appearance: none;
+
+    /* 우측에 패딩 추가해서 화살표 영역 확보 */
+    padding-right: 2rem;
+
+    /* 선택 스타일 유지 */
+    background-image: url('../images/angle-down-solid.svg');
+    background-repeat: no-repeat;
+    background-position: bottom 47% right 0.7rem;
+    background-size: 15px;
+}

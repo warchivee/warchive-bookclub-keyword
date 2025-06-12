@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>와카이브 북클럽 프로그램 키워드 서비스</title>
+    <link href="./stylesheets/index.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div>
+            <img src="https://www.womynarchive.com/images/logo/logo-text.png" alt="와카이브 로고" />
+            <span>북클럽 프로그램 시즌1</span>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="category-selector">
+            <select id="categorySelect">
+                <option value="all">전체</option>
+                <option value="feministAlliance">여성 연대</option>
+                <option value="talCorset">탈코르셋</option>
+                <option value="talOtaku">탈오타쿠</option>
+                <option value="talIdol">탈아이돌</option>
+                <option value="talReligion">탈종교</option>
+                <option value="selfThinking">주체성</option>
+                <option value="socialIssue">사회문제</option>
+            </select>
+            <button class="keyword-list-btn" onclick="togglePopup()">전체 키워드 보기</button>
+        </div>
+
+        <div class="card feminism" id="keywordCard">
+            <div class="title" id="cardTitle"></div>
+            <div class="keyword" id="keyword">키워드를 뽑아주세요</div>
+        </div>
+
+        <div class="buttons">
+            <button id="drawBtn" onclick="drawKeyword()">키워드 뽑기</button>
+            <button onclick="saveKeyword()">저장하기</button>
+        </div>
+    </div>
+
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <button class="close-btn" onclick="togglePopup()">✕</button>
+            <h3>전체 키워드 목록</h3>
+            <div id="keywordList"></div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast">저장되었습니다!</div>
+
+    <footer>
+        <span>Copyright © 2025 Warchive. All rights reserved.</span>
+        <span>|</span>
+        <span><a href="https://www.womynarchive.com" target="_blank">여성서사 아카이브 프로젝트 Warchive 바로가기</a></span>
+    </footer>
+
+    <script src="scripts/keyword.js"></script>
+    <script src="scripts/popup.js"></script>
+    <script src="scripts/toast.js"></script>
+</body>
+
+</html>
