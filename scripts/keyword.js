@@ -112,19 +112,31 @@ function drawKeyword() {
 }
 
 function saveKeyword() {
+    const category = document.getElementById('cardTitle').textContent;
     const keyword = document.getElementById('keyword').textContent;
     if (keyword === '키워드를 뽑아주세요') return;
 
     const saved = JSON.parse(localStorage.getItem('savedKeywords') || '[]');
     const toast = document.getElementById('toast');
 
-    if (!saved.includes(keyword)) {
-        saved.push(keyword);
+    const saveFormattedKeyword = category + '-' + keyword;
+
+    if (!saved.includes(saveFormattedKeyword)) {
+        saved.push(saveFormattedKeyword);
         localStorage.setItem('savedKeywords', JSON.stringify(saved));
         showToast("저장되었습니다!");
     } else {
         showToast("이미 저장된 키워드입니다.");
     }
+}
+
+function showToast(message) {
+    const toast = document.getElementById('toast');
+    toast.textContent = message;
+    toast.classList.add('show');
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 2000);
 }
 
 // select가 바뀔 때 카드 색상과 텍스트 초기화
@@ -169,7 +181,7 @@ function renderAllKeywords() {
         list.forEach(word => {
             const box = document.createElement('div');
             box.className = 'keyword-box';
-            if (saved.includes(word)) {
+            if (saved.includes(categories[category] + '-' + word)) {
                 box.classList.add('saved');
             }
             box.textContent = word;
