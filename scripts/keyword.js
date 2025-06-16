@@ -118,6 +118,7 @@ function drawKeyword() {
 
     const finalEl = document.createElement('div');
     finalEl.textContent = finalKeyword.text;
+    finalEl.id = 'selectedKeyword';
     roller.appendChild(finalEl);
 
     // 리셋
@@ -142,7 +143,7 @@ function drawKeyword() {
 
 function saveKeyword() {
     const category = document.getElementById('cardTitle').textContent;
-    const keyword = document.getElementById('keyword').textContent;
+    const keyword = document.getElementById('selectedKeyword').textContent;
     if (keyword === '키워드를 뽑아주세요') return;
 
     const saved = JSON.parse(localStorage.getItem('savedKeywords') || '[]');
@@ -172,7 +173,7 @@ function showToast(message) {
 document.getElementById('categorySelect').addEventListener('change', function () {
     const select = this;
     const card = document.getElementById('keywordCard');
-    const keywordEl = document.getElementById('keyword');
+    const keywordEl = document.getElementById('selectedKeyword');
     const titleEl = document.getElementById('cardTitle');
 
     const selectedCategory = select.value;
