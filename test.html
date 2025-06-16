@@ -1,0 +1,23 @@
+<style>
+    #drop {
+        font-size: 3rem;
+        text-align: center;
+        position: relative;
+        top: 0;
+        transition: top 0.5s ease-out;
+    }
+</style>
+<div id="drop">키워드</div>
+<button onclick="dropKeyword()">뽑기</button>
+
+<script>
+    const keywords = ['달빛', '열차', '카페', '음악', '벽시계'];
+    function dropKeyword() {
+        const el = document.getElementById('drop');
+        el.style.top = '-50px';
+        setTimeout(() => {
+            el.innerText = keywords[Math.floor(Math.random() * keywords.length)];
+            el.style.top = '0px';
+        }, 100);
+    }
+</script>

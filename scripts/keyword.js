@@ -89,12 +89,13 @@ let lastDrawnCategory = '';
 
 function drawKeyword() {
     const select = document.getElementById('categorySelect');
-    const keywordEl = document.getElementById('keyword');
     const titleEl = document.getElementById('cardTitle');
     const card = document.getElementById('keywordCard');
     const drawBtn = document.getElementById('drawBtn');
+    const roller = document.getElementById('keywordRoller');
 
     let allKeywords = [];
+
     if (select.value === 'all') {
         for (const [cat, list] of Object.entries(keywords)) {
             allKeywords.push(...list.map(k => ({ text: k, category: cat })));
@@ -103,13 +104,41 @@ function drawKeyword() {
         allKeywords = keywords[select.value].map(k => ({ text: k, category: select.value }));
     }
 
-    const random = allKeywords[Math.floor(Math.random() * allKeywords.length)];
-    keywordEl.textContent = random.text;
-    titleEl.textContent = `${categories[random.category]}`;
-    card.className = `card ${random.category}`;
-    lastDrawnCategory = random.category;
+    const finalKeyword = allKeywords[Math.floor(Math.random() * allKeywords.length)];
+    lastDrawnCategory = finalKeyword.category;
+
+    roller.innerHTML = '';
+    const rollCount = 20;
+    for (let i = 0; i < rollCount; i++) {
+        const temp = allKeywords[Math.floor(Math.random() * allKeywords.length)];
+        const el = document.createElement('div');
+        el.textContent = temp.text;
+        roller.appendChild(el);
+    }
+
+    const finalEl = document.createElement('div');
+    finalEl.textContent = finalKeyword.text;
+    roller.appendChild(finalEl);
+
+    // 리셋
+    roller.style.transition = 'none';
+    roller.style.transform = 'translateY(0)';
+    void roller.offsetWidth; // reflow 트릭
+
+    // 트랜지션 설정 후 이동
+    setTimeout(() => {
+        roller.style.transition = 'transform 2s cubic-bezier(0.25, 1, 0.5, 1)';
+        const itemHeight = 96;
+        roller.style.transform = `translateY(-${itemHeight * (rollCount)}px)`;
+    }, 50);
+
+    // 카테고리 표시
+    titleEl.textContent = categories[finalKeyword.category];
+    card.className = `card ${finalKeyword.category}`;
     drawBtn.textContent = "키워드 다시 뽑기";
 }
+
+
 
 function saveKeyword() {
     const category = document.getElementById('cardTitle').textContent;

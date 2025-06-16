@@ -55,8 +55,37 @@
     margin-bottom: 0.5rem;
 }
 
-.keyword {
+/* .keyword {
     font-size: 3rem;
     font-weight: bold;
     line-height: 120%;
+} */
+
+.title {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.keyword {
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 120%;
+    height: 96px;
+    overflow: hidden;
+    position: relative;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+}
+
+.keyword-roller {
+    display: flex;
+    flex-direction: column;
+    transition: transform 2s ease-in-out;
+}
+
+.keyword-roller div {
+    height: 96px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
